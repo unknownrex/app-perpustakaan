@@ -1,8 +1,7 @@
 {{-- File: resources/views/categories/create.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Daftar Kategori')
-<p><a href="{{ route('books.index') }}">&larr; Kembali ke daftar buku</a></p>
+@section('title', 'Tambah Kategori')
 @section('content')
     <h1>Tambah Kategori</h1>
     <p><a href="{{ route('categories.index') }}">&larr; Kembali ke daftar kategori</a></p>
