@@ -37,7 +37,8 @@ class StoreMemberRequest extends FormRequest
             'email.unique' => 'Email ini sudah terdaftar.',
             'nomor_telepon.required' => 'Nomor telepon wajib diisi.',
             'nomor_telepon.max' => 'Nomor telepon maksimal 100 karakter.',
-            'alamat.max' => 'Alamat maksimal 20 karakter.',
+            'alamat.required' => 'Alamat wajib diisi.',
+            'alamat.max' => 'Alamat maksimal 200 karakter.',
             'status.required' => 'Status wajib diisi.',
             'status.in' => 'Status harus berupa "aktif" atau "nonaktif".',
         ];
