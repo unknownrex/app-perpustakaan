@@ -28,6 +28,29 @@
             width: 160px;
             background: #f3f4f6;
         }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .badge-dipinjam {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-dikembalikan {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-terlambat {
+            background: #fee2e2;
+            color: #991b1b;
+        }
     </style>
 </head>
 
@@ -58,7 +81,7 @@
         </tr>
         <tr>
             <th>Status</th>
-            <td>{{ ucfirst($loan['status']) }}</td>
+            <td><span class="badge badge-{{ $loan['status'] }}">{{ ucfirst($loan['status']) }}</span></td>
         </tr>
     </table>
 

@@ -77,6 +77,29 @@
             border-radius: 4px;
             margin-bottom: 16px;
         }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .badge-dipinjam {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-dikembalikan {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-terlambat {
+            background: #fee2e2;
+            color: #991b1b;
+        }
     
         .btn {
             display: inline-block;
