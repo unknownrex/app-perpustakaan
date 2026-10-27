@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Loan;
 use App\Models\Member;
 use App\Models\Book;
+use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Support\Facades\Http;
 
 class LoanController extends Controller
 {
@@ -102,5 +104,28 @@ class LoanController extends Controller
 
         return redirect()->route('loans.index')
             ->with('success', 'Transaksi peminjaman berhasil dikembalikan.');
+    }
+
+    // File: app/Http/Controllers/LoanController.php
+    public function report(Request $request)
+    {
+        $body = ['data' => [], 'meta' => null];
+
+        try {
+            $response = Http::get(config('services.internal_api.base_url').'/api/loans', [
+                'page' => $request->query('page', 1),
+            ]);
+
+            if ($response->successful()) {
+                $body = $response->json();
+            }
+        } catch (ConnectionException $e) {
+            // Server internal API (port 8011) tidak bisa dihubungi - tabel laporan tampil kosong.
+        }
+
+        return view('loans.report', [
+            'loans' => $body['data'] ?? [],
+            'meta' => $body['meta'] ?? null,
+        ]);
     }
 }
